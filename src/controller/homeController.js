@@ -8,7 +8,7 @@ let getHomepage = (req, res) => {
     connection.query(
         'SELECT * FROM `users`',
         function (err, results, fields) {
-            console.log('>>> check mysql');
+            //console.log('>>> check mysql');
             //console.log(results); // results contains rows returned by server
             //console.log(fields); // fields contains extra meta data about results, if available
             results.map((row) => {
@@ -20,8 +20,9 @@ let getHomepage = (req, res) => {
                     address: row.address
                 })
             });
-            console.log('>>> check data: ', typeof (data), JSON.stringify(data));
-            return res.render('index.ejs', { dataUser: JSON.stringify(data) });
+            //console.log('>>> check data: ', typeof (data), JSON.stringify(data));
+            //return res.render('index.ejs', { dataUser: JSON.stringify(data) });
+            return res.render('index.ejs', { dataUser: data });
         }
     );
 }
